@@ -7,7 +7,7 @@ set -e
 REPO="$HOME/.hermes/hermes-sync"
 LOG="$HOME/.hermes/logs/sync.log"
 
-log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG"; }
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG"; }
 
 cd "$REPO"
 
