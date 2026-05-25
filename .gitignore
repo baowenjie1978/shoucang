@@ -1,0 +1,3 @@
+# Hermes Sync - 忽略锁文件
+*.lock
+.DS_Store
