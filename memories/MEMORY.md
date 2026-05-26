@@ -13,3 +13,9 @@
 图片生成：硅基流动 API Key 在 /tmp/sf_key.txt。可用模型：通义万相 Z-Image-Turbo（1.3MB/张）、通义千问 Qwen-Image（570KB/张）、Kwai-Kolors/Kolors。余额 ¥11.69，每日免费 200 次。图片规格：小红书 1080×1440，公众号 1440×1080。
 §
 包哥对图片要求：浅蓝科技风（RGB ~224,241,252 底、~30,136,229 蓝点缀、白色主内容），参考 Day5-Day9 卡片风格。AI 生中文图曾全部翻车（Kolors/Pollinations/FAL），通义万相和通义千问新测。包哥多次提到和 workbuddy 差距大，标准以此为准。深海蓝配色被明确否决。
+§
+图片生成最终方案：硅基流动 + 通义万相 Z-Image-Turbo。API Key 存 /tmp/sf_key.txt。免费额度内足够。风格：浅蓝科技风（对齐 Day5-9），白底+蓝色强调色+深蓝文字。微信已接入 Hermes（iLink Bot），用户 o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。
+§
+已下载 yao-open-prompts（12 个精选提示词）和 Agent-Learning-Hub 路线图到 D:\work\llm_study\。学习资料目录：Agent学习路线.md、你的Agent学习对照表.md、yao-prompts/。用户正在 Stage 1（最小 Agent Loop），对应 90 天计划的 Day 16-33。
+§
+漫画风格偏好：manga（日漫风格）。做知识漫画默认用 manga + warm tone，竖版 3:4。已通过 baoyu-comic skill 验证可用。
