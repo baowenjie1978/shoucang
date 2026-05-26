@@ -4,18 +4,14 @@
 §
 图片生成环境状态 (2026-05-26): FAL 余额耗尽需充值, OpenAI API key (sk-e27ae...) 无效需更换, xAI 未配 key, OpenAI Codex 未 OAuth 登录。代理 172.31.16.1:7892 可用但 curl 需显式 --proxy 参数。切换图片后端: hermes config set image_gen.provider <fal|openai|xai|openai-codex>。
 §
-图片生成: 硅基流动 Key 在 /tmp/sf_key.txt，Kolors 模型可用但中文效果差。包哥之前用腾讯混元效果好，正在配置腾讯云 SecretId/SecretKey。混元接入需腾讯云签名（非 Bearer Token）。FAL 余额耗尽，OpenAI Key 无效+被墙。Pollinations.ai 免费但质量差、限速。
-§
 包哥对图片质量要求高：AI 直接生成的含中文图片（Kolors/Pollinations）"外星人也看不懂"，宁可用 Pillow 纯代码渲染保证文字清晰。明确说过"千万别存 skill"——图片生成方案不要创建新 skill。提到和 workbuddy 差距不小，标准以 workbuddy 时期产出为参照。
-§
-硅基流动 (SiliconFlow) API Key 存储在 /tmp/sf_key.txt。用于图片生成等外部 API 调用。硅基流动支持多个国产模型：通义万相 Z-Image-Turbo（阿里，推荐）、百度 ERNIE-Image-Turbo、Qwen/Qwen-Image、Kwai-Kolors/Kolors。API 地址 https://api.siliconflow.cn/v1/images/generations，Bearer Token 认证。免费额度每天 200 次。腾讯混元已确认将于 2026 年 9 月 30 日停服，不可投资。
 §
 图片生成：硅基流动 API Key 在 /tmp/sf_key.txt。可用模型：通义万相 Z-Image-Turbo（1.3MB/张）、通义千问 Qwen-Image（570KB/张）、Kwai-Kolors/Kolors。余额 ¥11.69，每日免费 200 次。图片规格：小红书 1080×1440，公众号 1440×1080。
 §
 包哥对图片要求：浅蓝科技风（RGB ~224,241,252 底、~30,136,229 蓝点缀、白色主内容），参考 Day5-Day9 卡片风格。AI 生中文图曾全部翻车（Kolors/Pollinations/FAL），通义万相和通义千问新测。包哥多次提到和 workbuddy 差距大，标准以此为准。深海蓝配色被明确否决。
 §
-图片生成最终方案：硅基流动 + 通义万相 Z-Image-Turbo。API Key 存 /tmp/sf_key.txt。免费额度内足够。风格：浅蓝科技风（对齐 Day5-9），白底+蓝色强调色+深蓝文字。微信已接入 Hermes（iLink Bot），用户 o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。
-§
 已下载 yao-open-prompts（12 个精选提示词）和 Agent-Learning-Hub 路线图到 D:\work\llm_study\。学习资料目录：Agent学习路线.md、你的Agent学习对照表.md、yao-prompts/。用户正在 Stage 1（最小 Agent Loop），对应 90 天计划的 Day 16-33。
 §
 漫画风格偏好：manga（日漫风格）。做知识漫画默认用 manga + warm tone，竖版 3:4。已通过 baoyu-comic skill 验证可用。
+§
+包哥想做知识付费，方向：自媒体引流→微信私域成交。最终目标是训练营（39-69元/期），先以低价PDF资料包（1.99-3.99元）引流试水。核心要求：价格低但质量绝对不能差，不能砸口碑。形式不走网站，走小红书+公众号→私域微信。大部分内容由我（Hermes）产出，包哥负责发布、互动、收钱、交付。目前状态：想法讨论阶段，继续各自思考、随时交流，达成共识后再动手。初始方向建议用"AI做小红书封面"切入，但包哥也愿意听其他思路。
