@@ -16,4 +16,4 @@
 §
 包哥想做知识付费，方向：自媒体引流→微信私域成交。最终目标是训练营（39-69元/期），先以低价PDF资料包（1.99-3.99元）引流试水。核心要求：价格低但质量绝对不能差，不能砸口碑。形式不走网站，走小红书+公众号→私域微信。大部分内容由我（Hermes）产出，包哥负责发布、互动、收钱、交付。目前状态：想法讨论阶段，继续各自思考、随时交流，达成共识后再动手。初始方向建议用"AI做小红书封面"切入，但包哥也愿意听其他思路。
 §
-微信（iLink Bot）：bot名"微信ClawBot"（原WorkBuddy配），账号2ed53455d685@im.bot，用户o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。cronjob deliver平台名"weixin"。Windows桌面/mnt/c/Users/阳光学校微机室1/Desktop/。⚠️WSL代理172.31.16.1:7892不稳定，.bashrc设了HTTP_PROXY/HTTPS_PROXY，代理挂时aiohttp/httpx全挂。已修复：weixin.py 4处trust_env=True→False + 启动网关unset代理。不要用hermes gateway restart（重写service文件）。
+微信配置总结：平台名 "weixin"，cron deliver 格式 weixin:o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。发文件：放 ~/.hermes/document_cache/，cron agent 回复中输出绝对路径即可被 weixin adapter 自动提取发送。已修改 weixin.py trust_env=False（防 WSL 代理劫持）。⚠️ .env 中的代理变量会被网关加载覆盖 shell 设置，代理断时必须从 .env 移除。网关通过 ~/.hermes/start-gateway-clean.sh 启动（清代理+NO_PROXY=*），systemd 已禁用。
