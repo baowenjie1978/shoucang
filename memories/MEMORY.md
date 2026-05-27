@@ -16,6 +16,4 @@
 §
 微信配置总结：平台名 "weixin"，cron deliver 格式 weixin:o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。发文件：放 ~/.hermes/document_cache/，cron agent 回复中输出绝对路径即可被 weixin adapter 自动提取发送。已修改 weixin.py trust_env=False（防 WSL 代理劫持）。⚠️ .env 中的代理变量会被网关加载覆盖 shell 设置，代理断时必须从 .env 移除。网关通过 ~/.hermes/start-gateway-clean.sh 启动（清代理+NO_PROXY=*），systemd 已禁用。
 §
-Codex Desktop 配置 DeepSeek：wire_api 必须为 "chat"（"responses" 会静默卡死无输出），config.toml 在 C:\Users\阳光学校微机室1\.codex\。auth.json 需同时配 OPENAI_API_KEY 和 DEEPSEEK_API_KEY 指向同一 DeepSeek Key。relay 在 localhost:4445。Windows 环境变量用 setx 设置。
-§
-微信通道无法直接发送 .docx 等文件，需提取内容展示或存本地路径供用户自行打开。send_message 发 MEDIA: 路径也受限（无 home channel）。
+Codex Desktop + DeepSeek 方案：codex_deepseek_proxy（~/codex_deepseek_proxy/，127.0.0.1:5000）替代自带 relay。uv Python 3.11：~/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/bin/python。config.toml 关键：model=deepseek-v4-flash, wire_api=responses, base_url=http://127.0.0.1:5000，去掉 model_reasoning_effort、sandbox=elevated。代理已加 Gemini Vision（图片→文字），Gemini key 待用户给。CC Switch 下载未配置。
