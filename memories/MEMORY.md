@@ -4,8 +4,6 @@
 §
 包哥对图片质量要求高：AI 直接生成的含中文图片（Kolors/Pollinations）"外星人也看不懂"，宁可用 Pillow 纯代码渲染保证文字清晰。明确说过"千万别存 skill"——图片生成方案不要创建新 skill。提到和 workbuddy 差距不小，标准以 workbuddy 时期产出为参照。
 §
-图片生成：硅基流动 API Key 在 /tmp/sf_key.txt。可用模型：通义万相 Z-Image-Turbo（1.3MB/张）、通义千问 Qwen-Image（570KB/张）、Kwai-Kolors/Kolors。余额 ¥11.69，每日免费 200 次。图片规格：小红书 1080×1440，公众号 1440×1080。
-§
 包哥对图片要求：浅蓝科技风（RGB ~224,241,252 底、~30,136,229 蓝点缀、白色主内容），参考 Day5-Day9 卡片风格。AI 生中文图曾全部翻车（Kolors/Pollinations/FAL），通义万相和通义千问新测。包哥多次提到和 workbuddy 差距大，标准以此为准。深海蓝配色被明确否决。
 §
 已下载 yao-open-prompts（12 个精选提示词）和 Agent-Learning-Hub 路线图到 D:\work\llm_study\。学习资料目录：Agent学习路线.md、你的Agent学习对照表.md、yao-prompts/。用户正在 Stage 1（最小 Agent Loop），对应 90 天计划的 Day 16-33。
@@ -17,3 +15,5 @@
 微信配置总结：平台名 "weixin"，cron deliver 格式 weixin:o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。发文件：放 ~/.hermes/document_cache/，cron agent 回复中输出绝对路径即可被 weixin adapter 自动提取发送。已修改 weixin.py trust_env=False（防 WSL 代理劫持）。⚠️ .env 中的代理变量会被网关加载覆盖 shell 设置，代理断时必须从 .env 移除。网关通过 ~/.hermes/start-gateway-clean.sh 启动（清代理+NO_PROXY=*），systemd 已禁用。
 §
 Codex Desktop + DeepSeek 方案：codex_deepseek_proxy（~/codex_deepseek_proxy/，127.0.0.1:5000）替代自带 relay。uv Python 3.11：~/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/bin/python。config.toml 关键：model=deepseek-v4-flash, wire_api=responses, base_url=http://127.0.0.1:5000，去掉 model_reasoning_effort、sandbox=elevated。代理已加 Gemini Vision（图片→文字），Gemini key 待用户给。CC Switch 下载未配置。
+§
+硅基流动 API Key 已失效（/tmp/sf_key.txt 只有13字符，验证返回401）。需要重新生成 key 才能恢复图片生成和视觉识别。生成地址：https://siliconflow.cn 后台 → API Keys。
