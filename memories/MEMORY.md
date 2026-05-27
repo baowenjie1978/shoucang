@@ -12,8 +12,10 @@
 §
 包哥想做知识付费，方向：自媒体引流→微信私域成交。最终目标是训练营（39-69元/期），先以低价PDF资料包（1.99-3.99元）引流试水。核心要求：价格低但质量绝对不能差，不能砸口碑。形式不走网站，走小红书+公众号→私域微信。大部分内容由我（Hermes）产出，包哥负责发布、互动、收钱、交付。目前状态：想法讨论阶段，继续各自思考、随时交流，达成共识后再动手。初始方向建议用"AI做小红书封面"切入，但包哥也愿意听其他思路。
 §
-微信配置总结：平台名 "weixin"，cron deliver 格式 weixin:o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。发文件：放 ~/.hermes/document_cache/，cron agent 回复中输出绝对路径即可被 weixin adapter 自动提取发送。已修改 weixin.py trust_env=False（防 WSL 代理劫持）。⚠️ .env 中的代理变量会被网关加载覆盖 shell 设置，代理断时必须从 .env 移除。网关通过 ~/.hermes/start-gateway-clean.sh 启动（清代理+NO_PROXY=*），systemd 已禁用。
+微信配置：平台名 "weixin"，cron deliver 格式 weixin:o9cq803K6LMxmDH7AaXO5zv5lWm4@im.wechat。发文件方案：①拷到Windows桌面最可靠 ②temp.sh上传（国内可达，3天有效）③同网络用HTTP服务器。MEDIA:路径需home channel才能渲染。已修改 weixin.py trust_env=False（防 WSL 代理劫持）。⚠️ .env 中的代理变量会被网关加载覆盖 shell 设置，代理断时必须从 .env 移除。网关通过 ~/.hermes/start-gateway-clean.sh 启动（清代理+NO_PROXY=*），systemd 已禁用。
 §
 Codex Desktop + DeepSeek 方案：codex_deepseek_proxy（~/codex_deepseek_proxy/，127.0.0.1:5000）替代自带 relay。uv Python 3.11：~/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/bin/python。config.toml 关键：model=deepseek-v4-flash, wire_api=responses, base_url=http://127.0.0.1:5000，去掉 model_reasoning_effort、sandbox=elevated。代理已加 Gemini Vision（图片→文字），Gemini key 待用户给。CC Switch 下载未配置。
 §
 硅基流动 API Key 已失效（/tmp/sf_key.txt 只有13字符，验证返回401）。需要重新生成 key 才能恢复图片生成和视觉识别。生成地址：https://siliconflow.cn 后台 → API Keys。
+§
+用户有时不在电脑前，需要远程获取文件。考虑：邮件发送、文件共享、网盘等方式。
